@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: movie-api
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+    driverClassName: org.postgresql.Driver
+  sql:
+    init:
+      platform: postgres
+
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: 7849e5484f4359dfb1f3
+            clientSecret: ba396dfa3a24d1ee24563f32b1a6a37781c7dce4
+app:
+  jwt:
+    # Signing key for HS512 algorithm
+    # In http://www.allkeysgenerator.com/ you can generate all kinds of keys
+    secret: WmZq4t7w!z%C*F-JaNdRgUkXn2r5u8x/A?D(G+KbPeShVmYq3s6v9y$B&E)H@McQ
+    expiration:
+      minutes: 10
+  oauth2:
+    redirectUri: http://localhost:3000/oauth2/redirect
+  cors:
+    allowed-origins: http://localhost:3000
+
+logging:
+  level:
+    org.springframework.security: DEBUG
